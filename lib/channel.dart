@@ -1,3 +1,5 @@
+import 'package:dart_api/controllers/UserController.dart';
+
 import 'dart_api.dart';
 
 /// This type initializes an application.
@@ -33,6 +35,8 @@ class DartApiChannel extends ApplicationChannel {
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
       });
+    router
+      .route("/users").link(() => UserController());
 
     return router;
   }
